@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/user-cube/hetzner-tf-module/compare/v1.2.0...v1.2.1) (2026-02-20)
+
+
+### Bug Fixes
+
+* add missing files ([#4](https://github.com/user-cube/hetzner-tf-module/issues/4)) ([bcc0ce3](https://github.com/user-cube/hetzner-tf-module/commit/bcc0ce390f359ce99d565ee639e0c5cec743dd38))
+
 # [1.2.0](https://github.com/user-cube/hetzner-tf-module/compare/v1.1.0...v1.2.0) (2026-02-20)
 
 
