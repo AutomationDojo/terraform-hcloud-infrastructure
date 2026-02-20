@@ -68,7 +68,7 @@ module "server" {
 }
 ```
 
-### SSH Keys
+### SSH Keys (generate)
 
 ```hcl
 module "ssh_keys" {
@@ -80,6 +80,27 @@ module "ssh_keys" {
 ```
 
 When `output_path` is set, private and public key files are written to `<output_path>/<server>/keys/`. Leave it empty (default) to skip local file output.
+
+### SSH Keys (SOPS)
+
+```hcl
+data "sops_file" "ssh" {
+  source_file = "secrets/ssh.enc.yaml"
+}
+
+module "ssh_keys" {
+  source = "github.com/user-cube/hetzner-tf-module//modules/ssh-keys"
+
+  servers       = ["web-1", "web-2"]
+  generate_keys = false
+  sops_keys = {
+    web-1 = data.sops_file.ssh.data["web_1_public_key"]
+    web-2 = data.sops_file.ssh.data["web_2_public_key"]
+  }
+}
+```
+
+Set `generate_keys = false` and provide public keys via `sops_keys` to use pre-existing keys instead of generating new ones.
 
 ## License
 
