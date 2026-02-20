@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/user-cube/hetzner-tf-module/compare/v1.2.1...v1.3.0) (2026-02-20)
+
+
+### Features
+
+* use sops secrets ([#5](https://github.com/user-cube/hetzner-tf-module/issues/5)) ([9ce9226](https://github.com/user-cube/hetzner-tf-module/commit/9ce9226cc14c1d2fe1c5219752c7745901d60a3d))
+
 ## [1.2.1](https://github.com/user-cube/hetzner-tf-module/compare/v1.2.0...v1.2.1) (2026-02-20)
 
 
