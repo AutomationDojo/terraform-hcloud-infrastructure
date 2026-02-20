@@ -11,13 +11,13 @@ resource "hcloud_ssh_key" "primary-ssh-key" {
 }
 
 resource "local_file" "ssh_key_private" {
-  for_each = toset(var.servers)
+  for_each = var.output_path != "" ? toset(var.servers) : toset([])
   content  = tls_private_key.generic-ssh-key[each.key].private_key_pem
-  filename = "${path.root}/../../ansible/${each.key}/keys/${each.key}-ssh-key.pem"
+  filename = "${var.output_path}/${each.key}/keys/${each.key}-ssh-key.pem"
 }
 
 resource "local_file" "ssh_key_public" {
-  for_each = toset(var.servers)
+  for_each = var.output_path != "" ? toset(var.servers) : toset([])
   content  = tls_private_key.generic-ssh-key[each.key].public_key_openssh
-  filename = "${path.root}/../../ansible/${each.key}/keys/${each.key}-ssh-key.pub"
+  filename = "${var.output_path}/${each.key}/keys/${each.key}-ssh-key.pub"
 }
