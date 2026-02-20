@@ -1,4 +1,5 @@
 variable "rules" {
+  description = "Map of firewall rule sets. Each key creates a firewall, and its value is a list of rule objects."
   type = map(list(object({
     direction  = string
     protocol   = string
@@ -8,6 +9,7 @@ variable "rules" {
 }
 
 variable "labels" {
-  type    = map(string)
-  default = {}
+  description = "Labels to apply to all firewalls."
+  type        = map(string)
+  default     = {}
 }
