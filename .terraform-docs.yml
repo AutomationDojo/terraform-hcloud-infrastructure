@@ -1,0 +1,37 @@
+formatter: "markdown table"
+
+version: ">= 0.18.0"
+
+sections:
+  show:
+    - requirements
+    - providers
+    - inputs
+    - outputs
+    - resources
+
+content: |-
+  {{ .Requirements }}
+  {{ .Providers }}
+  {{ .Resources }}
+  {{ .Inputs }}
+  {{ .Outputs }}
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+recursive:
+  enabled: true
+  path: "modules"
+
+settings:
+  indent: 3
+  escape: true
+  required: true
+  type: true
+  default: true
