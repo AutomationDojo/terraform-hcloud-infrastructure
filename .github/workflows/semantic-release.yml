@@ -13,3 +13,10 @@ jobs:
     secrets:
       DEVOPS_BUDDY_APP_ID: ${{ secrets.DEVOPS_BUDDY_APP_ID }}
       DEVOPS_BUDDY_PRIVATE_KEY: ${{ secrets.DEVOPS_BUDDY_PRIVATE_KEY }}
+    with:
+      extra-plugins: |
+        @semantic-release/commit-analyzer
+        @semantic-release/release-notes-generator
+        @semantic-release/changelog
+        @semantic-release/git
+        @semantic-release/github
