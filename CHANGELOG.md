@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/user-cube/hetzner-tf-module/compare/v1.0.0...v1.1.0) (2026-02-20)
+
+
+### Features
+
+* server module ([#2](https://github.com/user-cube/hetzner-tf-module/issues/2)) ([ce09131](https://github.com/user-cube/hetzner-tf-module/commit/ce091319445bf135f57a88508edd5a19a0fefbfc))
+
 # 1.0.0 (2026-02-20)
 
 
