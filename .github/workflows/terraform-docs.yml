@@ -12,4 +12,4 @@ permissions:
 
 jobs:
   terraform-docs:
-    uses: user-cube/reusable-cicd/.github/workflows/terraform-docs.yml@main
+    uses: AutomationDojo/reusable-cicd/.github/workflows/terraform-docs.yml@main
