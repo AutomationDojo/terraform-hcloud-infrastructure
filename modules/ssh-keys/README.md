@@ -1,17 +1,33 @@
 <!-- BEGIN_TF_DOCS -->
+## Usage
+
+```hcl
+module "example" {
+  source = "AutomationDojo/infrastructure/hcloud"
+
+  servers       = var.servers
+
+  generate_keys = var.generate_keys # optional
+  output_path   = var.output_path # optional
+  sops_keys     = var.sops_keys # optional
+}
+```
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.45 |
+| terraform | `>= 1.0` |
+| hcloud | `~> 1.45` |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | ~> 1.45 |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
-| <a name="provider_tls"></a> [tls](#provider\_tls) | n/a |
+| hcloud | `~> 1.45` |
+| local | `` |
+| tls | `` |
+
 ## Resources
 
 | Name | Type |
@@ -21,18 +37,19 @@
 | [local_file.ssh_key_private](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_file.ssh_key_public](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [tls_private_key.generic-ssh-key](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_generate_keys"></a> [generate\_keys](#input\_generate\_keys) | When true, SSH key pairs are generated. When false, public keys must be provided via the sops\_keys variable. | `bool` | `true` | no |
-| <a name="input_output_path"></a> [output\_path](#input\_output\_path) | Base directory to write SSH key files. When empty, no local files are created. Only applies when generate\_keys is true. | `string` | `""` | no |
-| <a name="input_servers"></a> [servers](#input\_servers) | List of server names to create SSH keys for. | `list(string)` | n/a | yes |
-| <a name="input_sops_keys"></a> [sops\_keys](#input\_sops\_keys) | Map of server name to public key string. Used when generate\_keys is false. | `map(string)` | `{}` | no |
+| servers | List of server names to create SSH keys for. | `list(string)` | n/a | yes |
+| generate_keys | When true, SSH key pairs are generated. When false, public keys must be provided via the sops_keys variable. | `bool` | `true` | no |
+| output_path | Base directory to write SSH key files. When empty, no local files are created. Only applies when generate_keys is true. | `string` | `""` | no |
+| sops_keys | Map of server name to public key string. Used when generate_keys is false. | `map(string)` | `{}` | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ssh_key_ids"></a> [ssh\_key\_ids](#output\_ssh\_key\_ids) | Map of server name to Hetzner Cloud SSH key ID. |
-| <a name="output_ssh_key_names"></a> [ssh\_key\_names](#output\_ssh\_key\_names) | Map of server name to SSH key name. |
+| ssh_key_ids | Map of server name to Hetzner Cloud SSH key ID. |
+| ssh_key_names | Map of server name to SSH key name. |
 <!-- END_TF_DOCS -->

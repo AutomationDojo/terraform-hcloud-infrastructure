@@ -1,20 +1,28 @@
 <!-- BEGIN_TF_DOCS -->
+## Usage
+
+```hcl
+module "example" {
+  source = "AutomationDojo/infrastructure/hcloud"
+
+  servers = var.servers
+
+  labels  = var.labels # optional
+}
+```
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.45 |
+| terraform | `>= 1.0` |
+| hcloud | `~> 1.45` |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | ~> 1.45 |
-
-## Modules
-
-No modules.
+| hcloud | `~> 1.45` |
 
 ## Resources
 
@@ -27,13 +35,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_labels"></a> [labels](#input\_labels) | Labels to apply to all servers. | `map(string)` | `{}` | no |
-| <a name="input_servers"></a> [servers](#input\_servers) | Map of server configurations to create. Each value should include name, image, server\_type, location, and firewall\_name. | `any` | n/a | yes |
-
+| servers | Map of server configurations to create. Each value should include name, image, server_type, location, and firewall_name. | `any` | n/a | yes |
+| labels | Labels to apply to all servers. | `map(string)` | `{}` | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_server_ids"></a> [server\_ids](#output\_server\_ids) | Map of server key to Hetzner Cloud server ID. |
-| <a name="output_server_ips"></a> [server\_ips](#output\_server\_ips) | Map of server key to public IPv4 address. |
+| server_ids | Map of server key to Hetzner Cloud server ID. |
+| server_ips | Map of server key to public IPv4 address. |
 <!-- END_TF_DOCS -->

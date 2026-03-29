@@ -1,20 +1,29 @@
 <!-- BEGIN_TF_DOCS -->
+## Usage
+
+```hcl
+module "example" {
+  source  = "AutomationDojo/infrastructure/hcloud"
+  version = "1.3.0"
+
+  rules  = var.rules
+
+  labels = var.labels # optional
+}
+```
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.45 |
+| terraform | `>= 1.0` |
+| hcloud | `~> 1.45` |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | ~> 1.45 |
-
-## Modules
-
-No modules.
+| hcloud | `~> 1.45` |
 
 ## Resources
 
@@ -26,12 +35,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_labels"></a> [labels](#input\_labels) | Labels to apply to all firewalls. | `map(string)` | `{}` | no |
-| <a name="input_rules"></a> [rules](#input\_rules) | Map of firewall rule sets. Each key creates a firewall, and its value is a list of rule objects. | <pre>map(list(object({<br/>    direction  = string<br/>    protocol   = string<br/>    port       = string<br/>    source_ips = list(string)<br/>  })))</pre> | n/a | yes |
-
+| rules | Map of firewall rule sets. Each key creates a firewall, and its value is a list of rule objects. | `map(list(object({   direction = string   protocol  = string   port    = string   source_ips = list(string)  })))` | n/a | yes |
+| labels | Labels to apply to all firewalls. | `map(string)` | `{}` | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_firewall_ids"></a> [firewall\_ids](#output\_firewall\_ids) | Map of firewall name to Hetzner Cloud firewall ID. |
+| firewall_ids | Map of firewall name to Hetzner Cloud firewall ID. |
 <!-- END_TF_DOCS -->

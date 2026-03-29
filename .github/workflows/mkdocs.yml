@@ -1,0 +1,19 @@
+name: Deploy Documentation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  docs:
+    uses: AutomationDojo/reusable-cicd/.github/workflows/mkdocs_deploy.yml@main
+    with:
+      mkdocs-packages: "mkdocs>=1.5.3 mkdocs-material>=9.5.0 mkdocs-glightbox>=0.3.5 pymdown-extensions>=10.5"
