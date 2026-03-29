@@ -1,10 +1,11 @@
-name: Generate Terraform Docs
+name: Terraform Docs
 
 on:
   pull_request:
+    branches:
+      - main
     paths:
-      - "modules/**/**.tf"
-      - ".terraform-docs.yml"
+      - "modules/**"
 
 permissions:
   contents: write
@@ -13,3 +14,5 @@ permissions:
 jobs:
   terraform-docs:
     uses: AutomationDojo/reusable-cicd/.github/workflows/terraform-docs.yml@main
+    with:
+      modules-path: modules

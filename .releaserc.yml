@@ -5,8 +5,39 @@ plugins:
   - "@semantic-release/commit-analyzer"
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
+  - - "@semantic-release/exec"
+    - prepareCmd: |
+        find docs/ modules/ README.md -name "*.md" | xargs sed -i \
+          "s|version = \"[~> ]*[0-9]*\\.[0-9]*\\.[0-9]*\"|version = \"${nextRelease.version}\"|g"
   - - "@semantic-release/git"
     - assets:
         - CHANGELOG.md
+        - docs/**/*.md
+        - README.md
+        - modules/**/README.md
       message: "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
   - "@semantic-release/github"
+
+preset: conventionalcommits
+
+releaseRules:
+  - type: feat
+    release: minor
+  - type: fix
+    release: patch
+  - type: perf
+    release: patch
+  - type: docs
+    release: false
+  - type: chore
+    release: false
+  - type: refactor
+    release: patch
+  - type: test
+    release: false
+  - type: ci
+    release: false
+  - type: build
+    release: patch
+  - breaking: true
+    release: major

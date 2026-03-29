@@ -1,4 +1,4 @@
-# hetzner-tf-module
+# terraform-hcloud-infrastructure
 
 Reusable Terraform modules for managing Hetzner Cloud resources.
 
@@ -21,7 +21,8 @@ Reusable Terraform modules for managing Hetzner Cloud resources.
 
 ```hcl
 module "firewall" {
-  source = "github.com/user-cube/hetzner-tf-module//modules/firewall"
+  source  = "AutomationDojo/infrastructure/hcloud//modules/firewall"
+  version = "1.3.0"
 
   rules = {
     web = [
@@ -50,7 +51,8 @@ module "firewall" {
 
 ```hcl
 module "server" {
-  source = "github.com/user-cube/hetzner-tf-module//modules/server"
+  source  = "AutomationDojo/infrastructure/hcloud//modules/server"
+  version = "1.3.0"
 
   servers = {
     web = {
@@ -72,7 +74,8 @@ module "server" {
 
 ```hcl
 module "ssh_keys" {
-  source = "github.com/user-cube/hetzner-tf-module//modules/ssh-keys"
+  source  = "AutomationDojo/infrastructure/hcloud//modules/ssh-keys"
+  version = "1.3.0"
 
   servers     = ["web-1", "web-2"]
   output_path = "${path.root}/keys"
@@ -89,7 +92,8 @@ data "sops_file" "ssh" {
 }
 
 module "ssh_keys" {
-  source = "github.com/user-cube/hetzner-tf-module//modules/ssh-keys"
+  source  = "AutomationDojo/infrastructure/hcloud//modules/ssh-keys"
+  version = "1.3.0"
 
   servers       = ["web-1", "web-2"]
   generate_keys = false
