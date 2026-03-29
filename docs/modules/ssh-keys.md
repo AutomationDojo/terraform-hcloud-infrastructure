@@ -8,7 +8,8 @@ Generates RSA-4096 SSH key pairs and registers them in Hetzner Cloud. Supports t
 
     ```hcl
     module "ssh_keys" {
-      source = "AutomationDojo/infrastructure/hcloud//modules/ssh-keys"
+      source  = "AutomationDojo/infrastructure/hcloud//modules/ssh-keys"
+      version = "1.3.1"
 
       # Required
       servers = ["web-1", "web-2"]
@@ -29,7 +30,8 @@ Generates RSA-4096 SSH key pairs and registers them in Hetzner Cloud. Supports t
     }
 
     module "ssh_keys" {
-      source = "AutomationDojo/infrastructure/hcloud//modules/ssh-keys"
+      source  = "AutomationDojo/infrastructure/hcloud//modules/ssh-keys"
+      version = "1.3.1"
 
       # Required
       servers = ["web-1", "web-2"]

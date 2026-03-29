@@ -6,7 +6,8 @@ Provisions Hetzner Cloud servers with SSH key and firewall integration. All serv
 
 ```hcl
 module "server" {
-  source = "AutomationDojo/infrastructure/hcloud//modules/server"
+  source  = "AutomationDojo/infrastructure/hcloud//modules/server"
+  version = "1.3.1"
 
   # Required
   servers = {
