@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/AutomationDojo/terraform-hcloud-infrastructure/compare/v1.3.0...v1.3.1) (2026-03-29)
+
+### Bug Fixes
+
+* opensource module ([#6](https://github.com/AutomationDojo/terraform-hcloud-infrastructure/issues/6)) ([3d591e9](https://github.com/AutomationDojo/terraform-hcloud-infrastructure/commit/3d591e90a3694a3328255ea13387b95413139e8c))
+
 # [1.3.0](https://github.com/user-cube/hetzner-tf-module/compare/v1.2.1...v1.3.0) (2026-02-20)
 
 
