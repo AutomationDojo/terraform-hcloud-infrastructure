@@ -17,4 +17,4 @@ jobs:
     uses: AutomationDojo/reusable-cicd/.github/workflows/mkdocs_deploy.yml@main
     with:
       python-version: "3.11"
-      mkdocs-packages: "mkdocs>=1.5.3 mkdocs-material>=9.5.0 mkdocs-glightbox>=0.3.5 pymdown-extensions>=10.5"
+      mkdocs-packages: "mkdocs>=1.5.3 mkdocs-material>=9.5.0 mkdocs-glightbox>=0.3.5 pymdown-extensions>=10.6"
