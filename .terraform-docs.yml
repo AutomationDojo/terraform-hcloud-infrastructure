@@ -8,7 +8,7 @@ content: |-
   ```hcl
   module "example" {
     source  = "AutomationDojo/infrastructure/hcloud"
-    version = "1.3.0"
+    version = "1.3.1"
 
   {{- $maxLen := 0 -}}
   {{- range .Module.Inputs }}{{- $l := len .Name }}{{- if gt $l $maxLen }}{{- $maxLen = $l }}{{- end }}{{- end }}

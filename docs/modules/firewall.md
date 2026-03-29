@@ -6,7 +6,8 @@ Creates and manages Hetzner Cloud firewalls with dynamic rule sets. Each key in 
 
 ```hcl
 module "firewall" {
-  source = "AutomationDojo/infrastructure/hcloud//modules/firewall"
+  source  = "AutomationDojo/infrastructure/hcloud//modules/firewall"
+  version = "1.3.1"
 
   # Required
   rules = {
